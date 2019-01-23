@@ -1,0 +1,78 @@
+var app = getApp()
+Page({
+  data: {
+    slider: [],
+    currentSwiper: 0,
+    autoplay: true
+  },
+  onLoad: function (options) {
+    var that = this;
+    wx.request({
+      url: app.globalData.ServerURL + '/mobile/plugin/ComponentList.jsp?comp=3&conditions=categoryids:is:402880f260a17ff10160a188f32e0005&pageindex=0&pagesize=4',
+      data: {
+
+      },
+      header: {
+        'Content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res)
+        var list = res.data.list;
+        for (var i = 0; i < list.length; i++) {
+          list[i].pic = list[i].pic.replace(list[i].pic, list[i].pic.substring(0, 32))
+        }
+        that.setData({
+          slider: res.data.list
+        });
+      },
+      fail: function (msg) {
+        console.log(msg);
+      }
+    })
+  },
+  onReady: function () {
+    var that = this;
+    wx.request({
+      url: app.globalData.ServerURL + '/mobile/plugin/ComponentList.jsp?comp=3&conditions=categoryids:is:4029bcd8611b8e3801611c73bc790004&pageindex=0&pagesize=1',
+      data: {
+
+      },
+      header: {
+        'Content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        that.setData({
+          listTop1: res.data.list[0],
+        });
+      },
+      fail: function (msg) {
+        console.log(msg);
+      }
+    })
+  },
+  swiperChange: function (e) {
+    this.setData({
+      currentSwiper: e.detail.current
+    })
+  },
+  baoxiu: function (e) {
+    if (app.globalData.userInfo && wx.getStorageSync('orgName')) {
+      wx.navigateTo({
+        url: '../servering/index?workflowId=' + e.currentTarget.id
+      });
+    } else {
+      wx.showToast({
+        title: '登录并选择企业',
+        icon: 'loading',
+        duration: 1000,
+        width: 2000,
+      })
+      setTimeout(function () {
+        wx.switchTab({
+          url: '../mine/index',
+        })
+      }, 1000)
+    }
+  },  
+  
+})

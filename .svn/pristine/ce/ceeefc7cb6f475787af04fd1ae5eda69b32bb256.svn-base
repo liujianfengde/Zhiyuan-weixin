@@ -1,0 +1,115 @@
+/*menubar*/
+.menubar{
+    height: 80rpx;
+    background: #f4f5f6;
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 99;
+    white-space: nowrap;
+    display: flex;
+}
+.menu{
+    width:100%;
+    height: 80rpx;
+    line-height: 70rpx;
+    background: #f4f5f6;
+}
+.menu text{
+    display: inline-block;
+    width:50%;
+    font-size: 30rpx;
+    font-weight: 600;
+    height: 94%;
+    text-align: center;
+}
+.menu text.active{
+    color:#1f80c6;
+    border-bottom: 3rpx solid #1f80c6;
+}
+
+/*content*/
+.content{
+    padding-top:80rpx;
+}
+.swiper_con{
+  width: 100%; 
+  overflow: hidden;
+  background: #fff;
+}
+.swiper_cen{
+  width: 96%;
+  margin:0 auto;
+  overflow: hidden;
+  padding-bottom:10rpx;
+}
+.wpiper_cen{
+  width: 100%;
+  height: 15rpx;
+  background: #f4f4f4;
+}
+.swiper_cen .message{
+  display: block;
+  width:100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  margin-top: 10rpx;
+  font-size:32rpx;
+  color:#222;
+}
+.swiper_cen .company{
+  display: block;
+  width:100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  margin-top: 10rpx;
+  font-size:24rpx;
+  color:#b2b2b2;
+}
+.find{
+  overflow: hidden;
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom:10rpx;
+}
+.find image{
+  width: 100%;
+}
+/* .find:last-child{
+  border-bottom:none;
+} */
+.findLeft{
+  width: 58%;
+  float: left;
+}
+.findLeft .title{
+  display: block;
+  width: 100%;
+  font-size: 32rpx;
+  color: #222222;
+  line-height: 50rpx;
+  text-overflow: ellipsis;
+}
+.swiper_cen .time{
+  display: block;
+  height: 20%;
+  width:100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  font-size:24rpx;
+  color:#b2b2b2;
+  margin-top:10rpx;
+}
+.findRight{
+  width:42%;
+  height: 195rpx;
+  margin:30rpx 0;
+  float: right;
+}
+.findRight image{
+  width:100%;
+  height: 195rpx;
+  border-radius: 5rpx;
+}

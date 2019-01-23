@@ -1,0 +1,11 @@
+<view class="section">
+  <input value="{{name}}" placeholder-class="phcolor" placeholder="请输入您的真实姓名"  class='inputName'  bindinput="setDisabled"/>
+</view>
+<view class="page-section">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class="weui-cells"  range-key="objname">
+      <text class='mylistRight'>选择公司 {{array[index].objname}}</text>
+  </picker>
+</view>
+
+<button type="primary" size="default" disabled="{{disabled}}" bindtap="primary"  bindtap="tijiao"> 提交 </button>
+<text style='color:red'>成功提交之后无法更改,请谨慎填写</text>

@@ -1,0 +1,545 @@
+const app = getApp()
+var tt = require('../../utils/util.js');
+var dateTimePicker = require('../../utils/dateTimePicker.js');
+var testCount=1;
+
+Page({
+  data: {
+    imgsHttp:[],
+    arr0:[],
+    arr:[],
+    tupian:false,
+    tijiao:"提交",
+    disabled:false,
+    color:"#1AAD19",
+    date: '2018-10-01',
+  },
+  onLoad: function (options) {
+    this.loading();
+
+
+    var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+    var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+    // 精确到分的处理，将数组的秒去掉
+    var lastArray = obj1.dateTimeArray.pop();
+    var lastTime = obj1.dateTime.pop();
+
+    this.setData({
+      dateTime: obj.dateTime,
+      dateTimeArray: obj.dateTimeArray,
+      dateTimeArray1: obj1.dateTimeArray,
+      dateTime1: obj1.dateTime
+    });
+
+    var workflowId=options.workflowId;
+    this.setData({
+      workflowId:workflowId
+    })
+    console.log(workflowId)
+    var tokenId=wx.getStorageSync('tokenId');
+    var that=this;
+    wx.request({
+      url: app.globalData.ServerURL + '/mvc/workFlowController/getWeChatWorkFlowLayout?workflowId='
+       + workflowId + '&tokenId=' + tokenId,
+      data: {
+
+      },
+      header: {
+        'Content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res.data.data)
+        for (var i = 0; i < res.data.data.length; i++) {
+          if (res.data.data[i].controlType == "Attach") {
+            that.setData({
+              tupian: true
+            })
+          } else if (res.data.data[i].controlType == "Select") {
+
+            if (res.data.data[i].pickValue[0].ismulti=="0"){
+              res.data.data[i].pickValue = res.data.data[i].pickValue.slice(1)
+            }
+          }
+        }
+        that.setData({
+          arr: res.data.data
+        })
+      },
+      fail: function (msg) {
+        console.log(msg)
+      },
+      complete: function () {
+        wx.hideToast();
+      }
+    })
+    
+
+  },
+
+  changeDate(e) {
+    this.setData({ date: e.detail.value });
+  },
+  changeTime(e) {
+    this.setData({ time: e.detail.value });
+  },
+  changeDateTimeColumn(e) {
+    var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
+
+    arr[e.detail.column] = e.detail.value;
+    dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+
+    this.setData({
+      dateTimeArray: dateArr,
+      dateTime: arr
+    });
+  },
+  changeDateTimeColumn1(e) {
+    var arr = this.data.dateTime1, dateArr = this.data.dateTimeArray1;
+
+    arr[e.detail.column] = e.detail.value;
+    dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+
+    this.setData({
+      dateTimeArray1: dateArr,
+      dateTime1: arr
+    });
+  },
+
+
+  loading: function () {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 10000
+    })
+  },
+
+  onReady: function () {
+    
+  },
+  //选择器更改showValue的值
+  bindPickerChange: function (e) {
+    var that=this;
+    var labelPCName=e.currentTarget.dataset.labelpcname;
+    var idx = e.currentTarget.dataset.idx;
+    var array = this.data.arr;
+    for (var i = 0; i < array.length; i++) {
+      if (array[i].labelPCName == labelPCName) {
+        var arr0=that.data.arr0
+        var jihe={
+          labelNme: array[i].labelName,          
+          index: e.detail.value,
+          showValue: array[i].pickValue[e.detail.value].id,
+          showName: array[i].pickValue[e.detail.value].objname,
+          labelPCName: array[i].labelPCName,
+        }
+        arr0[idx]=jihe
+        that.setData({
+          arr0:arr0
+        })
+      }
+    }
+    // this.yanzheng()
+  },
+  bindPickerChange2: function (e) {
+    var that = this;
+    var labelPCName = e.currentTarget.dataset.labelpcname;
+    var idx = e.currentTarget.dataset.idx;
+    var array = this.data.arr;
+    for (var i = 0; i < array.length; i++) {
+      if (array[i].labelPCName == labelPCName) {
+        var arr0 = that.data.arr0
+        var jihe = {
+          labelNme: array[i].labelName,
+          index: 1,
+          showValue: e.detail.value,
+          showName: e.detail.value,
+          labelPCName: array[i].labelPCName,
+        }
+        arr0[idx] = jihe
+        that.setData({
+          arr0: arr0
+        })
+      }
+    }
+  },
+  changeDateTimeColumn(e) {
+    var arr = this.data.dateTime, dateArr = this.data.dateTimeArray;
+
+    arr[e.detail.column] = e.detail.value;
+    dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+
+    this.setData({
+      dateTimeArray: dateArr,
+      dateTime: arr
+    });
+  },
+  //修改input以及文本框中的内容
+  inputChange: function (e) {
+    var labelPCName = e.currentTarget.dataset.labelpcname;
+    var array = this.data.arr;
+    for (var i = 0; i < array.length; i++) {
+      if (array[i].labelPCName == labelPCName) {
+        array.forEach((item, index, arr) => {
+          var showValue = "arr[" + i + "].showValue";
+          this.setData({
+              [showValue]: e.detail.value,
+          })
+        })
+      }
+    }
+  },
+  uploadpic: function (e) {
+    var that = this//获取上下文
+    var idx = e.currentTarget.dataset.idx;
+    var array = this.data.arr;
+    var upload_picture_list=[];
+      
+    //选择图片
+    wx.chooseImage({
+      count: 8, // 默认9，这里显示一次选择相册的图片数量 
+      sizeType: ['original', 'compressed'],// 可以指定是原图还是压缩图，默认二者都有  
+      sourceType: ['album', 'camera'],// 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {// 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片 
+        var tempFiles = res.tempFiles
+        //把选择的图片 添加到集合里
+        for (var i in tempFiles) {
+          // tempFiles[i]['upload_percent'] = 0
+          // tempFiles[i]['path_server'] = ''
+          upload_picture_list.push(tempFiles[i])
+        }
+        console.log(upload_picture_list)
+        var oldPic = that.data.arr[idx].pickValue;
+        console.log(oldPic)
+        if(oldPic != null){
+          upload_picture_list = oldPic.concat(upload_picture_list)
+          console.log(upload_picture_list)
+        }
+        var pickValue = "arr[" + idx + "].pickValue";
+        
+        //显示
+        that.setData({
+          [pickValue]: upload_picture_list,
+        })
+        console.log(that.data.arr[idx].pickValue)
+        if (that.data.arr[idx].pickValue.length>2){
+          that.setData({
+            display: "none",
+          })
+        }
+      }
+    })
+  },
+  //验证信息是否必填
+  bitian() {
+    var that=this;
+    var arr = this.data.arr;
+    for (var i = 0; i < arr.length; i++) {
+      console.log(arr[i].showValue)
+      if (arr[i].showType == "3"){
+          wx.showToast({
+            title: '请补全信息',
+            icon: 'loading',
+            duration: 500,
+            width: 2000,
+          })
+          this.setData({
+            tijiao: "提交",
+            disabled: false,
+            color: "#1AAD19"
+          })
+      }
+
+      // if (arr[i].controlType == "Lable"  && arr[i].showType == "3" && arr[i].showValue == " "){
+      //   wx.showToast({
+      //     title: '请补全信息',
+      //     icon: 'loading',
+      //     duration: 500,
+      //     width: 2000,
+      //   })
+      //   this.setData({
+      //     tijiao: "提交",
+      //     disabled: false,
+      //     color: "#1AAD19"
+      //   })
+      // } else if (arr[i].controlType == "textArea" && arr[i].showType == "3" && arr[i].showValue == " "){
+      //   wx.showToast({
+      //     title: '请补全信息',
+      //     icon: 'loading',
+      //     duration: 500,
+      //     width: 2000,
+      //   })
+      //   this.setData({
+      //     tijiao: "提交",
+      //     disabled: false,
+      //     color: "#1AAD19"
+      //   })
+      // }
+    }
+  },
+  tijiao: function () {
+
+    this.setData({
+      tijiao:"提交中...",
+      disabled:true,
+      color:"#ccc"
+    })
+
+    var that = this;
+    var arr=that.data.arr;
+    var arr0 = that.data.arr0;
+    var workflowId = this.data.workflowId;
+    var value=""
+      value = "workflowid=" + workflowId + "&" +"src=submit";
+    console.log(value)
+
+    var tupian=this.data.tupian;
+    if(tupian==false){
+      for (var i2 = 0; i2 < arr.length; i2++) {
+        if (arr[i2].controlType == "Select") {
+          value = value + "&" + arr0[i2].labelPCName + "=" + arr0[i2].showValue
+        } else if (arr[i2].controlType == "Lable" && arr[i2].fieldType == 4) {
+          value = value + "&" + arr0[i2].labelPCName + "=" + arr0[i2].showValue
+        } else if (arr[i2].controlType == "Lable" && arr[i2].fieldType == 5) {
+          value = value + "&" + arr0[i2].labelPCName + "=" + arr0[i2].showValue
+        } else if (arr[i2].controlType == "Lable" && arr[i2].fieldType == 6) {
+          value = value + "&" + arr0[i2].labelPCName + "=" + arr0[i2].showValue
+        }else {
+          console.log(arr[i2].showValue)
+          value = value + "&" + arr[i2].labelPCName + "=" + arr[i2].showValue
+        }
+      }
+      that.bitian();
+        var tokenId = wx.getStorageSync('tokenId');
+        wx.request({
+          url: app.globalData.ServerURL + '/mvc/wxHumresController/getHumresIdByTokenId?tokenId=' + tokenId,
+          data: {
+          },
+          header: {
+            'Content-type': 'application/x-www-form-urlencoded'
+          },
+          success: function (res) {
+            var HumresId = res.data.data;
+            value = value + "&sessionkey" + "=" + HumresId;
+            wx.request({
+              url: app.globalData.ServerURL + '/mvc/workFlowController/submitWorkFlow',
+              data: {
+                param: value,
+              },
+              method: 'POST',
+              header: {
+                'content-type': 'application/x-www-form-urlencoded'
+              },
+              success: function (res) {
+                console.log(res)
+                wx.showToast({
+                  title: '提交成功',
+                  icon: 'sucess',
+                  duration: 500,
+                  width: 2000,
+                })
+                setTimeout(function () {
+                  wx.switchTab({
+                    url: '../index/index',
+                  })
+                }, 1000)
+              }, fail(res) {
+                console.log(res);
+              }
+            })
+          },
+          fail: function (msg) {
+            console.log(msg);
+          }
+        })
+    }else{
+    for(var i=0;i<arr.length;i++){
+      if (arr[i].controlType == "Attach") {
+        var upload_picture_list = arr[i].pickValue
+        const idx=i;
+        if (upload_picture_list.length > 0) {
+          for (var j in upload_picture_list) {
+              wx.uploadFile({
+                url: app.globalData.ServerURL + '/ServiceAction/com.tap.base.file.FileUploadAction?action=uploadFile',
+                filePath: upload_picture_list[j].path,
+                name: 'parkingPhoto',
+                success: function (res) {
+                  var imgsHttp = that.data.imgsHttp;
+                  // var showValue = "arr[" + idx + "].showValue";
+                  imgsHttp.push(res.data)
+                  that.setData({
+                    imgsHttp: imgsHttp
+                  })
+                  if (upload_picture_list.length == imgsHttp.length) {
+                    var showValue = "arr[" + idx + "].showValue";
+                    that.setData({
+                      [showValue]: imgsHttp
+                    })
+                    // value = value + "&" + arr[idx].labelPCName + "=" + arr[idx].showValue
+                    for (var i2 = 0; i2 < arr.length; i2++) {
+                      
+                      if (arr[i2].controlType=="Select"){
+                        value = value + "&" + arr0[i2].labelPCName + "=" + arr0[i2].showValue
+                      }else if(arr[i2].controlType == "Lable" && arr[i2].fieldType == 4) {
+                        value = value + "&" + arr0[i2].labelPCName + "=" + arr0[i2].showValue
+                      }else if(arr[i2].controlType == "Lable" && arr[i2].fieldType == 5) {
+                        value = value + "&" + arr0[i2].labelPCName + "=" + arr0[i2].showValue
+                      }else if(arr[i2].controlType == "Lable" && arr[i2].fieldType == 6) {
+                        value = value + "&" + arr0[i2].labelPCName + "=" + arr0[i2].showValue
+                      }else{
+                        console.log(arr[i2].showValue)
+                        value = value + "&" + arr[i2].labelPCName + "=" + arr[i2].showValue
+                      }
+                    }
+                      var tokenId = wx.getStorageSync('tokenId');
+                      that.bitian();
+                      // wx.request({
+                      //   url: app.globalData.ServerURL + '/mvc/wxHumresController/getHumresIdByTokenId?tokenId=' + tokenId,
+                      //   data: {
+                      //   },
+                      //   header: {
+                      //     'Content-type': 'application/x-www-form-urlencoded'
+                      //   },
+                      //   success: function (res) {
+                      //     var HumresId = res.data.data;
+                      //     value = value + "&sessionkey"  + "=" + HumresId;
+                      //     console.log(value)
+                          
+<<<<<<< .mine
+                      //     wx.request({
+                      //       url: app.globalData.ServerURL + '/mvc/workFlowController/submitWorkFlow',
+                      //       data: {
+                      //         param:value,
+                      //       },
+                      //       method: 'POST',
+                      //       header: {
+                      //         'content-type': 'application/x-www-form-urlencoded'
+                      //       },
+                      //       success: function (res) {
+                      //         console.log(res)
+                      //         wx.showToast({
+                      //           title: '上传成功',
+                      //           icon: 'sucess',
+                      //           duration: 500,
+                      //           width: 2000,
+                      //         })
+                      //         setTimeout(function () {
+                      //           wx.switchTab({
+                      //             url: '../index/index',
+                      //           })
+                      //         }, 1000)
+                      //       }, fail(res) {
+                      //         console.log(res);
+                      //       }
+                      //     })
+                      //   },
+                      //   fail: function (msg) {
+                      //     console.log(msg);
+                      //   }
+                      // })
+||||||| .r4630
+                          wx.request({
+                            url: app.globalData.ServerURL + '/mvc/workFlowController/submitWorkFlow',
+                            data: {
+                              param:value,
+                            },
+                            method: 'POST',
+                            header: {
+                              'content-type': 'application/x-www-form-urlencoded'
+                            },
+                            success: function (res) {
+                              console.log(res)
+                              wx.showToast({
+                                title: '上传成功',
+                                icon: 'sucess',
+                                duration: 500,
+                                width: 2000,
+                              })
+                              setTimeout(function () {
+                                wx.switchTab({
+                                  url: '../index/index',
+                                })
+                              }, 1000)
+                            }, fail(res) {
+                              console.log(res);
+                            }
+                          })
+                        },
+                        fail: function (msg) {
+                          console.log(msg);
+                        }
+                      })
+                    }else{
+                      wx.showToast({
+                        title: '请补全信息',
+                        icon: 'loading',
+                        duration: 500,
+                        width: 2000,
+                      })
+                      setTimeout(function () {
+                        wx.switchTab({
+                          url: '../index/index',
+                        })
+                      }, 1000)
+                    }
+
+=======
+                          wx.request({
+                            url: app.globalData.ServerURL + '/mvc/workFlowController/submitWorkFlow',
+                            data: {
+                              param:value,
+                            },
+                            method: 'POST',
+                            header: {
+                              'content-type': 'application/x-www-form-urlencoded'
+                            },
+                            success: function (res) {
+                              console.log(res)
+                              wx.showToast({
+                                title: '提交成功',
+                                icon: 'sucess',
+                                duration: 500,
+                                width: 2000,
+                              })
+                              setTimeout(function () {
+                                wx.switchTab({
+                                  url: '../index/index',
+                                })
+                              }, 1000)
+                            }, fail(res) {
+                              console.log(res);
+                            }
+                          })
+                        },
+                        fail: function (msg) {
+                          console.log(msg);
+                        }
+                      })
+                    }else{
+                      wx.showToast({
+                        title: '请补全信息',
+                        icon: 'loading',
+                        duration: 500,
+                        width: 2000,
+                      })
+                      setTimeout(function () {
+                        wx.switchTab({
+                          url: '../index/index',
+                        })
+                      }, 1000)
+                    }
+
+>>>>>>> .r4640
+                  }
+                },
+                fail(res) {
+                  console.log(res);
+                }
+              })
+            }
+        }
+      }
+    }
+  }
+  }
+})

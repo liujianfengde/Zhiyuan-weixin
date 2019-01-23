@@ -1,0 +1,51 @@
+<view class="banner-box wrap">
+  <swiper class="swiper" indicator-dots="true" autoplay="true" indicator-color="rgba(255,255,255,0.4)" indicator-active-color="rgba(255,255,255,1)" circular='true' interval="3000" duration="1000">
+    <block wx:key="unique" wx:for="{{slider}}" wx:for-index="index">
+      <swiper-item>
+        <block wx:if="{{item.pic}}">
+          <image src="https://zhiyuan.eplus.org.cn/ServiceAction/com.tap.document.file.FileDownload?attachid={{item.pic}}"  mode="aspectFill" ></image>
+        </block>
+        <block wx:else>
+          <image src="../../images/index/wutu.jpg" mode="aspectFill"/>
+        </block>
+        <navigator class="nav-item" url="../detail/index?id={{item.id}}" hover-class="other-navigator-hover"><image src="../../images/index/banerbot.png" mode="aspectFill" class='banerbot'></image></navigator>
+        <text>{{item.subject}}</text>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!-- <navigator url="../detail/index?id={{listTop1.id}}"  class="btn-tonggao" hover-class="other-navigator-hover">
+  <view>
+      <text style="color:#1f80c6">通知</text>
+      <text style="color:#ff8c02">公告</text>
+      <text class='toutiao'>头条</text>
+      <text class='message'>{{listTop1.subject}}</text>
+      <image src="../../images/index/right.png"/>
+  </view>
+</navigator> -->
+<view class='service'>
+  <view class='serviceCon'>
+    <view class='serviceTitle'>
+       <image src="../../images/index/wuye.png" mode="center center"/>
+       <text>物业管理</text>
+    </view>
+    <view class="btn-sudoku">
+      <view class="nav-item" catchtap="baoxiu" id="4029bcd860c04abc0160d4ea3e7d034d">
+        <image src="../../images/index/service2.png" mode="center center" class="icon"/>
+        <text>物业报修</text>
+      </view>
+     <view catchtap="baoxiu" class="nav-item" id="4028748167812c64016781447329003a">
+        <image src="../../images/index/star2.png" mode="center center" class="icon"/>
+        <text>场地预定</text>
+      </view>
+      <view catchtap="baoxiu" class="nav-item" id="4029bcd867aac6ee0167abd596f10094">
+        <image src="../../images/index/house2.png" mode="center center" class="icon"/>
+        <text>联系电话</text>
+      </view>
+      <view catchtap="baoxiu" class="nav-item" id="4029bcd867aac6ee0167abf1e8a500b0">
+        <image src="../../images/index/note2.png" mode="center center" class="icon"/>
+        <text>建议投诉</text>
+      </view>
+    </view>
+  </view>
+</view>

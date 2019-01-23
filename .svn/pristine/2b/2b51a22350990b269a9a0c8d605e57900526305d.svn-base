@@ -1,0 +1,112 @@
+<view class="topBan">
+    <image class='topBanImg' src="../../images/index/topBan.jpg" mode="center center"/>
+    <view class='topCen'>
+      <view class='topCon'>
+        <block wx:if="{{!hasUserInfo && canIUse}}">
+          <view class='touxiang'>
+            <image src="../../images/index/user.png" mode="center center"/>
+          </view>
+          <button  class="login" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登录 </button>
+          <view class="authorize-warning" hidden="{{!isShowAhturoizeWarning}}">
+            <view class="box">
+              <view class="title">警告</view>
+              <view class="content">拒绝授权后，将无法通知您。。。。。点击“取消”拒绝提醒，点击“确定”再次尝试授权？</view>
+              <view class="footer">
+                <button bindtap="cancelAuthroize">取消</button>
+                <button open-type="getUserInfo" bindgetuserinfo="getAuthorize">确定</button>
+              </view>
+            </view>
+          </view> 
+        </block>
+        <block wx:else>
+          <view class='touxiang'>
+            <image src="{{userInfo.avatarUrl}}" mode="center center"/>
+          </view>
+          <view class='name'>{{userInfo.nickName}}</view>
+          <view class='location'>铜牛电影产业园</view>
+        </block>
+      </view>  
+    </view>
+</view>
+<block wx:if="{{!hasUserInfo && canIUse}}">
+</block>
+<block wx:else>
+<view class='myCon'>
+  <view class='myCen'>
+    <block wx:if="{{company}}">
+      <view class='myList'>
+        <image src="../../images/index/myCompany.png" mode="center center"/>
+        <view class='myListCon'>
+          <text class='myListLeft'>所属公司</text>
+          <text class='mylistRight'>{{companyName}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <navigator class="nav-item" url="./myinfo/index" hover-class="other-navigator-hover">
+        <view class='myList'>
+          <image src="../../images/index/myCompany.png" mode="center center"/>
+          <view class='myListCon'>
+            <text class='myListLeft'>所属公司</text>
+            <image src="../../images/index/myRight.png" mode="center center"/>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>
+<view class='myCon' style='background:none'>
+  <view class='myCen'>
+    <view class='myShiwu'>我的事务</view>
+  </view>
+</view>
+<view class='myCon'>
+  <view class='myCen'>
+  <navigator class="nav-item" url="./mycon/index?comp=1" hover-class="other-navigator-hover">
+      <view class='myList'>
+        <image src="../../images/index/myShenpi.png" mode="center center"/>
+        <view class='myListCon'>
+          <text class='myListLeft'>待办事项</text>
+          <image src="../../images/index/myRight.png" mode="center center"/>
+        </view>
+      </view>
+    </navigator>
+    <navigator class="nav-item" url="./mycon/index?comp=8" hover-class="other-navigator-hover">
+      <view class='myList'>
+        <image src="../../images/index/myService.png" mode="center center"/>
+        <view class='myListCon'>
+          <text class='myListLeft'>已办事项</text>
+          <image src="../../images/index/myRight.png" mode="center center"/>
+        </view>
+      </view>
+    </navigator>
+    <navigator class="nav-item" url="./mycon/index?comp=7" hover-class="other-navigator-hover">
+      <view class='myList'>
+        <image src="../../images/index/mybanjie.png" mode="center center"/>
+        <view class='myListCon'>
+          <text class='myListLeft'>办结事项</text>
+          <image src="../../images/index/myRight.png" mode="center center"/>
+        </view>
+      </view>
+    </navigator>
+    <navigator class="nav-item" url="./mycon/index?comp=9" hover-class="other-navigator-hover">  
+      <view class='myList'>
+        <image src="../../images/index/myNote.png" mode="center center"  style='height:35rpx'/>
+        <view class='myListCon'>
+          <text class='myListLeft'>发起待续</text>
+          <image src="../../images/index/myRight.png" mode="center center"/>
+        </view>
+      </view>
+    </navigator>
+    <navigator class="nav-item" url="./mycon/index?comp=11" hover-class="other-navigator-hover">
+      <view class='myList'>
+        <image src="../../images/index/mybanjie.png" mode="center center"/>
+        <view class='myListCon'>
+          <text class='myListLeft'>发起已结束</text>
+          <image src="../../images/index/myRight.png" mode="center center"/>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+</block>

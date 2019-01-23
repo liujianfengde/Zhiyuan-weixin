@@ -1,0 +1,49 @@
+@import "../../lib/weui.wxss";
+page{
+  background: #f4f4f4;
+}
+.page-section{
+  margin-top:12rpx;
+  background: #fff;
+  border-top:1px solid #e5e5e5;
+  border-bottom:1px solid #e5e5e5;
+  overflow: hidden;
+}
+.weui-cells{
+  width: 90%;
+  height: 70rpx;
+  margin:0 auto;
+  margin-top: 20rpx;
+}
+button{
+  margin-top: 20rpx;
+}
+.weui-cells .picker{
+  width:95%;
+  float: left;
+  color: #777777;
+}
+.weui-cells image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+  border-top:1px solid #e5e5e5;
+  border-bottom:1px solid #e5e5e5;
+}
+.inputName{
+  width: 95%;
+  height: 90rpx;
+  background: #fff;
+  margin-top:15rpx;
+  border-top:1px solid #e5e5e5;
+  border-bottom:1px solid #e5e5e5;
+  padding-left:5%;
+}
+
+.phcolor{
+   color:#000;
+   
+}

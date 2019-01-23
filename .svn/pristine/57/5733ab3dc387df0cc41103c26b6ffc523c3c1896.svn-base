@@ -1,0 +1,176 @@
+@import "../../lib/weui.wxss";
+.page-section{
+  margin-top:12rpx;
+  background: #fff;
+  border-top:1px solid #e5e5e5;
+  border-bottom:1px solid #e5e5e5;
+}
+.weui-cells{
+  width: 90%;
+  height: 70rpx;
+  margin:0 auto;
+  margin-top: 20rpx;
+}
+button{
+  margin-top: 20rpx;
+}
+.weui-cells .picker{
+  width:95%;
+  float: left;
+  color: #777777;
+}
+.weui-cells image{
+  width: 30rpx;
+  height: 30rpx;
+}
+page{
+  background: #f4f4f4;
+}
+.topInput{
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  margin-top: 15rpx;
+}
+.topInput .InputLeft{
+  width: 1%;
+  height: 100rpx;
+  background: #1f80c6;
+  float: left;
+}
+.topInput .InputRight{
+  width: 90%;
+  height: 100rpx;
+  margin:0 auto;
+  float: left;
+  margin-left: 5%;
+  line-height: 100rpx;
+}
+.inputName{
+  width: 95%;
+  height: 90rpx;
+  background: #fff;
+  margin-top:15rpx;
+  border-top:1px solid #e5e5e5;
+  border-bottom:1px solid #e5e5e5;
+  padding-left:5%;
+}
+.topInput .InputRight text:first-child{
+  color: #1f80c6;
+}
+.topInput .InputRight text:nth-child(2){
+  color: #444444;
+  float: right;
+  height: 100rpx;
+  width: 58%;
+  display: block;
+  overflow: hidden;
+}
+
+.topInput2{
+  width: 100%;
+  background: #fff;
+  margin-top: 15rpx;
+  overflow:hidden;
+}
+.topInput2 .InputLeft{
+  width: 1%;
+  background: #1f80c6;
+  float: left;
+   height: 100%;
+  
+}
+.topInput2 .InputRight{
+  width: 90%;
+  margin:0 auto;
+  float: left;
+  margin-left: 4%;
+  line-height:80rpx;
+}
+.topInput2 .InputRight .con image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.topInput2 .InputRight .con2{
+  width: 100%;
+  height: 120rpx;
+  margin-bottom: 5rpx;
+}
+.topInput2 .InputRight .con2 text:first-child{
+  display: block;
+  color:#444;
+  float: left;
+  width: 50%;
+}
+.topInput2 .InputRight .con2 text:nth-child(2){
+  display: block;
+  color:#444;
+  float: right;
+  width: 50%;
+  text-align: right;
+  margin-top:14rpx;
+  padding-bottom: 0rpx;
+}
+.topInput2 .InputRight .con2 text:nth-child(3){
+  display: block;
+  color:#444;
+  float: left;
+  width: 70%;
+  line-height: 30rpx;
+  padding-bottom: 15rpx;
+}
+.topInput2 .InputRight text:first-child{
+  color: #1f80c6;
+}
+.topInput2 .InputRight text:nth-child(2){
+  display: block;
+  width: 100%;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  margin-top:-10rpx;
+  padding-bottom: 20rpx;
+}
+.InputRightImage{
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.InputRightImage .imgs{
+  width: 30%;
+  height: 200rpx;
+  display: block
+}
+.InputRightImage .imgs image{
+  width: 100%;
+  height: 200rpx;
+}
+.bottom{
+  width:100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom:0;
+}
+
+.bottom text:nth-child(1){
+  display: block;
+  width: 50%;
+  height: 100rpx;
+  color:#1f80c6;
+  background: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  border-top: 1px solid #e3e3e3;
+}
+.bottom text:nth-child(2){
+  display: block;
+  width: 50%;
+  height: 100rpx;
+  background:#1f80c6;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  border-top: 1px solid #1f80c6;
+}

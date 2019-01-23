@@ -1,0 +1,8 @@
+<view class='con'>
+  <view class='conCen'>
+    <text class='message'>{{detail.subject}}</text>
+    <text class='company'>{{detail.creatorname}}  {{detail.createdate}}</text>
+    <import src="../../wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:databinding.nodes}}"/>
+  </view>
+</view>

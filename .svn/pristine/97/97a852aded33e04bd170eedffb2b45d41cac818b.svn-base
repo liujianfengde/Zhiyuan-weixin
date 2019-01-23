@@ -1,0 +1,98 @@
+<view class='topTabSwiper'>
+    <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}'  data-current = "0" bindtap='checkCurrent'>园区政策</view>
+    <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}'  data-current = "1" bindtap='checkCurrent'>企业动态 </view>
+</view>
+<swiper current="{{currentData}}" class='swiper' style="height:{{height}}rpx" duration="300" bindchange="bindchange">
+  <swiper-item class="swiper-item">
+    <view class='swiper_con'>
+      <scroll-view
+      scroll-y
+      style="height: {{viewHeight}}px;"
+      bindscrolltolower="lower"
+    >
+      <navigator url="../detail/index?id={{listTop1.id}}" class="nav-item" hover-class="other-navigator-hover">
+      <view class='swiper_cen'>
+        <view class='image'>
+          <block wx:if="{{listTop1.pic}}">
+            <image src="https://zhiyuan.eplus.org.cn/ServiceAction/com.tap.document.file.FileDownload?attachid={{listTop1.pic}}" mode="center center"/>
+            </block>
+          <block wx:else>
+              <image src="../../images/index/wutu.jpg" mode="aspectFill"/>
+          </block>
+        </view>
+        <text class='message'>{{listTop1.subject}}</text>
+        <text class='company'>{{listTop1.creator}} {{listTop1.createdate}}</text>
+      </view>
+      </navigator>
+      <view class='wpiper_cen'></view>
+    <view class='swiper_con' style='margin-top:10rpx'>
+      <view class='swiper_cen'  wx:for="{{list}}" wx:key="index">
+         <view class='find'>
+          <navigator url="../detail/index?id={{item.id}}" class="nav-item" hover-class="other-navigator-hover">
+            <view class='findLeft'>
+             <text class='title'>{{item.subject}}</text>
+              <text class='time'>{{item.creator}} {{item.createdate}}</text>
+            </view>
+            <view class='findRight'>
+              <block wx:if="{{item.pic}}">
+                <image src="https://zhiyuan.eplus.org.cn/ServiceAction/com.tap.document.file.FileDownload?attachid={{item.pic}}" mode="aspectFill"/>
+              </block>
+              <block wx:else>
+                  <image src="../../images/index/wutu.jpg" mode="aspectFill"/>
+              </block>
+            </view>
+          </navigator>
+         </view>
+      </view>
+    </view>
+    </scroll-view>
+     
+    </view>
+  </swiper-item> 
+  <swiper-item class="swiper-item">
+    <view class='swiper_con'>
+      <scroll-view
+      scroll-y
+      style="height: 400px;"
+      bindscrolltolower="lower"
+    >
+      <navigator url="../detail/index?id={{listTop2.id}}" class="nav-item" hover-class="other-navigator-hover">
+      <view class='swiper_cen'>
+        <view class='image'>
+          <block wx:if="{{listTop2.pic}}">
+            <image src="https://zhiyuan.eplus.org.cn/ServiceAction/com.tap.document.file.FileDownload?attachid={{listTop2.pic}}" mode="center center"/>
+            </block>
+          <block wx:else>
+              <image src="../../images/index/wutu.jpg" mode="aspectFill"/>
+          </block>
+        </view>
+        <text class='message'>{{listTop1.subject}}</text>
+        <text class='company'>{{listTop1.creator}} {{listTop1.createdate}}</text>
+      </view>
+      </navigator>
+      <view class='wpiper_cen'></view>
+    <view class='swiper_con' style='margin-top:10rpx'>
+      <view class='swiper_cen'  wx:for="{{list2}}" wx:key="index">
+         <view class='find'>
+          <navigator url="../detail/index?id={{item.id}}" class="nav-item" hover-class="other-navigator-hover">
+            <view class='findLeft'>
+             <text class='title'>{{item.subject}}</text>
+              <text class='time'>{{item.creator}} {{item.createdate}}</text>
+            </view>
+            <view class='findRight'>
+              <block wx:if="{{item.pic}}">
+                <image src="https://zhiyuan.eplus.org.cn/ServiceAction/com.tap.document.file.FileDownload?attachid={{item.pic}}" mode="aspectFill"/>
+              </block>
+              <block wx:else>
+                  <image src="../../images/index/wutu.jpg" mode="aspectFill"/>
+              </block>
+            </view>
+          </navigator>
+         </view>
+      </view>
+    </view>
+    </scroll-view>
+     
+    </view>
+  </swiper-item> 
+</swiper>

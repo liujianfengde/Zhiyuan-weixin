@@ -1,0 +1,65 @@
+<view wx:for="{{arr}}" wx:key="index">
+  <block wx:if="{{item.controlType == 'Lable'}}">
+    <view class="topInput">
+      <view class='InputLeft'>
+      </view>
+      <view class='InputRight'>
+        <text decode="{{true}}">{{item.labelName}}</text>
+        <text>{{item.showValue}}</text>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{item.controlType == 'textArea'}}">
+    <view class="topInput2">
+      <view class='InputRight'>
+        <text decode="{{true}}">{{item.labelName}}</text>
+        <view class="page-section" style='border-top:none;border-bottom:none'>
+          <view class="textarea-wrp">
+            <textarea style="height: 5em;width:99%" placeholder="{{item.showValue}}" value="{{item.showValue}}" bindinput="setDisabled2"/>
+          </view>
+      </view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{item.controlType == 'tupian'}}">
+    <view class="topInput2" style='padding-bottom:20rpx;'>
+      <view class='InputLeft'>
+      </view>
+      <view class='InputRight'>
+        <text decode="{{true}}">{{item.labelName}}</text>
+        <view class='InputRightImage'>
+        <view wx:for="{{item.showValue}}" wx:key="index" class='imgs'>
+          <image src="{{item.value}}" mode="aspectFill" bindtap="imgYu" data-list="{{item.arr}}"/>
+        </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{item.controlType == 'liucheng'}}">
+    <view class="topInput2">
+      <view class='InputLeft'>
+      </view>
+      <view class='InputRight'>
+        <text decode="{{true}}">{{item.labelName}}</text>
+        <view wx:for="{{item.showValue}}" wx:key="index">
+          <view class="con2" style='color:#111;font-size:33rpx;'>
+            <text>{{item.nodename}}</text>
+            <text>{{item.operatedate}} {{item.operatortime}}</text>
+            <text>{{item.operatorname}} {{item.logtypename}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{item.controlType == 'xuanze'}}">
+    <view class="page-section">
+      <picker bindchange="bindPickerChange2" value="{{item.index2}}" range="{{item.showValue}}" class="weui-cells" range-key="name"  data-index="1">
+        <view class="picker">
+        {{item.labelName}} {{item.showValue[item.index2].name}}
+        </view>
+        <image src="../../images/index/myRight.png" mode="center center"/>
+      </picker>
+    </view>
+  </block>
+</view>
+

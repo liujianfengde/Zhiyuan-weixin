@@ -1,0 +1,129 @@
+page{
+  background: #f4f4f4;
+}
+.topBan{
+  width: 100%;
+  height: 400rpx;
+  position: relative;
+}
+.topBan .topBanImg{
+  width: 100%;
+  height: 400rpx;
+  position: absolute;
+  left:0;
+  top:0;
+}
+.topCen{
+  width:100%;
+  height: 90%;
+  position: absolute;
+  left:0;
+  top:10%;
+}
+.topCon{
+  width: 100%;
+  height: 90%;
+  margin:0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.topCon .login{
+  height: 70rpx;
+  line-height: 70rpx;
+  background: none;
+  color: #fff;
+}
+.touxiang{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  border:2px solid #fff;
+  overflow: hidden;
+}
+.touxiang image{
+  width: 180rpx;
+  height: 180rpx;
+}
+.topCon .name{
+  color: #fff;
+  font-size: 40rpx;
+}
+.topCon .location{
+  color: #fff;
+  font-size: 35rpx;
+  padding:8rpx 30rpx;
+  border:1px solid #489edd;
+  border-radius: 80rpx;
+}
+.myCon{
+  width: 100%;
+  background: #fff;
+}
+.myCen{
+  width: 96%;
+  margin:0 auto;
+}
+.myList{
+  width: 100%;
+  height: 40rpx;
+  padding:30rpx 0;
+  border-bottom:1px solid #eee;
+}
+navigator{
+  border-bottom:1px solid #eee;
+}
+.myList:last-child{
+  border-bottom: none;
+}
+.myList image{
+  width: 5%;
+  height: 40rpx;
+  float: left;
+}
+.myList .myListCon{
+  width: 93%;
+  height: 40rpx;
+  float: right;
+}
+.myListLeft{
+  float: left;
+  color: #333;
+  height: 35rpx;
+  font-size: 35rpx;
+  display: block;
+  line-height: 35rpx;
+}
+.myListCon image{
+  width: 30rpx;
+  height: 30rpx;
+  float: right;
+  margin-top: 3rpx;
+}
+.mylistRight{
+  float: right;
+  font-size: 30rpx;
+  margin-right: 20rpx;
+  color: #888888;
+  display: block;
+  height: 30rpx;
+  line-height: 30rpx;
+  margin-top: 3rpx;
+}
+.mylistRight2{
+  width: 30rpx;
+  height: 30rpx;
+  font-size: 26rpx;
+  background:#ffefef;
+  border-radius: 50%;
+  color: #ff0000;
+  text-align: center;
+  line-height: 30rpx;
+  margin-right: 10rpx;
+}
+.myShiwu{
+  color: #000;
+  height: 130rpx;
+  line-height: 160rpx;
+}

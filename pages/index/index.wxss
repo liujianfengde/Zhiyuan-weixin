@@ -1,0 +1,150 @@
+page{
+  background: #f4f4f4
+}
+.banner-top{
+  width:100%;
+  height:677rpx;
+  position: relative;
+}
+.banner-top .banner{
+  width:100%;
+  position:absolute;
+  left:0;
+  top:0;
+}
+.banner-top .banner-con{
+  width:94%;
+  height: 330rpx;
+  background: #fff;
+  position:absolute;
+  left:3%;
+  top:320rpx;
+  box-shadow: 0px 0px 6px #ccc;
+  border-radius: 30rpx;
+}
+.btn-sudoku{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background:#fff;
+  padding: 3% 0 4% 0;
+  border-radius: 50rpx;
+}
+.btn-sudoku .nav-item{
+  width: 25%;
+  text-align: center;
+  color: #222222;
+  font-size: 26rpx;
+}
+.btn-sudoku .icon{
+  width: 70%;
+  height: 125rpx;
+  padding: 10% 15%;
+}
+.btn-tonggao{
+  width:92%;
+  height: 73rpx;
+  margin:0 auto;
+  border-top:1px solid #d9d9d9;
+  font-size: 30rpx;
+  line-height: 73rpx;
+  color: #666666;
+}
+.btn-tonggao text{
+  display: block;
+  float: left;
+  font-weight: bold;
+}
+.btn-tonggao .toutiao{
+  font-weight: normal;
+  height: 30rpx;
+  color: #eb2b16;
+  font-size: 25rpx;
+  line-height: 30rpx;
+  border-radius: 5rpx;
+  padding:2rpx 7rpx;
+  margin: 18rpx 10rpx 20rpx 20rpx;
+  border:1px solid #eb2b16;
+}
+.btn-tonggao .message{
+  width:60%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  margin-left: 10rpx;
+  font-weight: normal;
+}
+.btn-tonggao image{
+  float: right;
+  width:25rpx;
+  height:37rpx;
+  margin-top:19rpx;
+}
+.list-title{
+  width:100%;
+  height: 77rpx;
+  font-size:30rpx;
+  background: #fff;
+  line-height: 100rpx;
+  margin-top:20rpx;
+  color: #282828;
+  font-weight: bold;
+}
+.list-title image{
+  width: 28rpx;
+  height: 34rpx;
+  margin-left: 33rpx;
+  margin-top:35rpx;
+  float: left;
+}
+.list-goods{
+  background: #fff;
+  padding-bottom: 10rpx;
+}
+.list-goods2{
+  width:94%;
+  margin:0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+/* .item-goods:last-child{
+  border-bottom:none;
+} */
+.btn-sudoku .nav-item{
+  border-bottom: none;
+}
+.nav-item{
+  width: 100%;
+  display: block;
+  min-height: 80rpx;
+  border-bottom: 1px dashed #e4e4e4;
+}
+.name{
+  display: block;
+  width: 100%;
+  color:#333;
+  font-size: 30rpx;
+  padding: 16rpx 0 5rpx 0;
+  line-height: 40rpx;
+  overflow: hidden;
+}
+.item-image{
+  width:100%;
+  height: 380rpx;
+  border-radius: 5rpx;
+  overflow: hidden;
+  margin:10rpx 0;
+}
+.item-image image{
+  display: block;
+  width:100%;
+  height: 384rpx;
+  border-radius: 5rpx;
+}
+.item-bottom{
+  width: 100%;
+  height:40rpx;
+  font-size: 28rpx;
+  color: #b2b2b2;
+  padding: 8rpx 0 8rpx 0;
+}

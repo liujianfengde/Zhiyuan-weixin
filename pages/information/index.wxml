@@ -1,0 +1,17 @@
+<view class="topInput">
+  <view class='InputLeft'>
+  </view>
+  <view class='InputRight'>
+    <text decode="{{true}}">物业电话</text>
+    <text>010-85771899</text>
+  </view>
+</view>
+<view class="topInput">
+  <view class='InputLeft'>
+  </view>
+  <view class='InputRight'>
+    <text decode="{{true}}">运营电话</text>
+    <text>18910269877</text>
+  </view>
+</view>
+  

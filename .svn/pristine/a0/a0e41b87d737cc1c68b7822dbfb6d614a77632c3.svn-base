@@ -1,0 +1,154 @@
+page{
+  background: #f4f4f4;
+}
+.swiper{
+  position: relative
+}
+.wrap{
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.wrap .banerbot{
+  display: block;
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  height: 253rpx;
+}
+.wrap text{
+  display: block;
+  position: absolute;
+  width: 96%;
+  left:2%;
+  right:0;
+  bottom:45rpx;
+  margin:0 auto;
+  color: #fff;
+  font-size: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  text-align: center;
+}
+.swiper{
+  width: 100%;
+  height: 350rpx;
+}
+.swiper image{
+  width: 100%;
+  height: 350rpx;
+}
+.btn-tonggao{
+  width:100%;
+  height: 73rpx;
+  margin:0 auto;
+  font-size: 30rpx;
+  line-height: 73rpx;
+  color: #666666;
+  background: #fff;
+  padding: 7rpx 0;
+}
+.btn-tonggao view{
+  width: 96%;
+  margin: 0 auto;
+}
+.btn-tonggao text{
+  display: block;
+  float: left;
+  font-weight: bold;
+}
+.btn-tonggao .toutiao{
+  font-weight: normal;
+  height: 30rpx;
+  color: #eb2b16;
+  font-size: 25rpx;
+  line-height: 30rpx;
+  border-radius: 5rpx;
+  padding:2rpx 7rpx;
+  margin: 18rpx 10rpx 20rpx 20rpx;
+  border:1px solid #eb2b16;
+}
+.btn-tonggao .message{
+  width:60%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  margin-left: 10rpx;
+  font-weight: normal;
+}
+.btn-tonggao image{
+  float: right;
+  width:25rpx;
+  height:37rpx;
+  margin-top:19rpx;
+}
+.service{
+  width:100%;
+  height:280rpx;
+  background:#fff;
+  margin-top: 10rpx;
+  overflow: hidden; 
+}
+.serviceCon{
+  width:96%;
+  margin:0 auto;
+}
+.serviceTitle{
+  width: 100%;
+  height: 60rpx;
+  margin-top: 30rpx;
+}
+.serviceTitle image{
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+}
+.serviceTitle text{
+  color: #222;
+  display: block;
+  float:left;
+  font-size: 40rpx;
+  line-height: 40rpx;
+  margin-left:10rpx;
+}
+.btn-sudoku{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow: hidden;
+  margin-top:10rpx;
+}
+.btn-sudoku .nav-item{
+  width: 24.2%;
+  height: 150rpx;
+  text-align: center;
+  color: #222222;
+  font-size: 26rpx;
+  background:#78affe;
+  border-radius: 13rpx;
+  position: relative;
+}
+.btn-sudoku .nav-item:nth-child(2){
+  background: #62d4e2;
+}
+.btn-sudoku .nav-item:nth-child(3){
+  background: #fdb048;
+}
+.btn-sudoku .nav-item:nth-child(4){
+  background: #fe7073;
+}
+.btn-sudoku .nav-item image{
+  width: 75rpx;
+  height: 69rpx;
+  margin-top: 20rpx;
+}
+.btn-sudoku text{
+  width: 100%;
+  height: 30rpx;
+  color: #fff;
+  display: block;
+  font-size: 28rpx;
+  position: absolute;
+  bottom:18rpx;
+}

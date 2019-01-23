@@ -1,0 +1,65 @@
+    
+{
+  "pages": [
+    "pages/index/index",
+    
+    "pages/mine/index",
+    "pages/message/index",
+    "pages/service/index",
+    
+    
+    "pages/servering/index",
+    
+    
+    
+    "pages/template/index",
+    
+    "pages/mine/mycon/index",
+    "pages/mine/myinfo/index",
+    "pages/mine/mydetail/index",
+    "pages/detail/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTitleText": "智园",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#eaeaea"
+  },
+  "tabBar": {
+    "color": "#aaaaaa",
+    "borderStyle": "black",
+    "selectedColor": "#1f80c6",
+    "backgroundColor": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabBar/tabBar_essence_click_icon.png",
+        "selectedIconPath": "images/tabBar/tabBar_essence_icon.png"
+      },
+      {
+        "pagePath": "pages/message/index",
+        "text": "发现",
+        "iconPath": "images/tabBar/tabBar_friendTrends_click_icon.png",
+        "selectedIconPath": "images/tabBar/tabBar_friendTrends_icon.png"
+      },
+      {
+        "pagePath": "pages/service/index",
+        "text": "服务",
+        "iconPath": "images/tabBar/tabBar_new_click_icon.png",
+        "selectedIconPath": "images/tabBar/tabBar_new_icon.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "images/tabBar/tabBar_me_click_icon.png",
+        "selectedIconPath": "images/tabBar/tabBar_me_icon.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000
+  },
+  "debug": true
+}

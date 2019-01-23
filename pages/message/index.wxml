@@ -1,0 +1,27 @@
+<!--menubar-->
+<scroll-view scroll-x="true" class="menubar">
+    <view class="menu">
+        <text class="{{dataId=='0'?'active':''}}" bindtap="check"  data-id="0" data-type="4029bcd8611b8e3801611c73bc790004">政策汇聚</text>
+        <text class="{{dataId=='1'?'active':''}}" bindtap="check"  data-id="1" data-type="4029bcd867b9d9b30167ba0b6b5e00a9">企业荟萃</text>
+    </view>
+</scroll-view>
+<!--content-->
+<scroll-view scroll-y="true" class="content" style="height: {{windowHeight}}px; width: {{windowWidth}}px;"  bindscrolltoupper="pullDownRefresh" bindscrolltolower="pullUpLoad">
+    <!--top-->
+    <view class='swiper_con' style='margin-top:10rpx'>
+      <view class='swiper_cen'  wx:for="{{list}}" wx:key="index">
+         <view class='find'>
+          <navigator url="../detail/index?id={{item.id}}" class="nav-item" hover-class="other-navigator-hover">
+            <view class='findLeft' style='width:100%;margin-top:0;margin-bottom:0'>
+             <text class='title'>{{item.subject}}</text>
+             <block wx:if="{{item.pic}}">
+                <image src="https://zhiyuan.eplus.org.cn/ServiceAction/com.tap.document.file.FileDownload?attachid={{item.pic}}" mode="aspectFill"/>
+              </block>
+              <text class='time'>{{item.creator}} {{item.createdate}}</text>
+            </view>
+              
+          </navigator>
+         </view>
+      </view>
+    </view>
+</scroll-view>

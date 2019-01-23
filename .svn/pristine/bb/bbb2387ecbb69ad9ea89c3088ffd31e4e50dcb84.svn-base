@@ -1,0 +1,32 @@
+
+page{
+  background: #f4f4f4;
+}
+.topInput{
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  margin-top: 15rpx;
+}
+.topInput .InputLeft{
+  width: 1%;
+  height: 100rpx;
+  background: #1f80c6;
+  float: left;
+}
+.topInput .InputRight{
+  width: 90%;
+  height: 100rpx;
+  margin:0 auto;
+  float: left;
+  margin-left: 5%;
+  line-height: 100rpx;
+}
+.topInput .InputRight text:first-child{
+  display: block;
+  color: #1f80c6;
+  float: left;
+  height: 100rpx;
+  width: 30%;
+  overflow: hidden;
+}

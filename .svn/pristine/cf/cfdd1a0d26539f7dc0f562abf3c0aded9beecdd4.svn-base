@@ -1,0 +1,123 @@
+@import "../lib/weui.wxss";
+page{
+  background: #f4f4f4;
+  padding-bottom: 30rpx;
+}
+.page-section{
+  margin-top:12rpx;
+  background: #fff;
+  border-top:1px solid #e5e5e5;
+  border-bottom:1px solid #e5e5e5;
+}
+.weui-cells{
+  width: 90%;
+  height: 70rpx;
+  margin:0 auto;
+  margin-top: 20rpx;
+}
+button{
+  margin-top: 20rpx;
+}
+.weui-cells .picker{
+  width:95%;
+  float: left;
+  color: #777777;
+  /* height: 50rpx;
+  overflow: hidden; */
+}
+.weui-cells .picker text:nth-child(1){
+  display: block;
+  float: left;
+  width: 25%;
+  height: 48rpx;
+  overflow: hidden;
+}
+.bitian{
+  color: red;
+  display: block;
+  width: 20rpx !important;
+}
+.weui-cells image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.labelView{
+  width: 27%;
+  height: 90rpx;
+  float: left;
+  background: #fff;
+  margin-top:15rpx;
+  border-top:1px solid #e5e5e5;
+  border-bottom:1px solid #e5e5e5;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 34rpx;
+  overflow: hidden;
+}
+.inputName{
+  width: 73%;
+  height: 90rpx;
+  float: left;
+  background: #fff;
+  margin-top:15rpx;
+  border-top:1px solid #e5e5e5;
+  border-bottom:1px solid #e5e5e5;
+}
+textarea {
+  width: 700rpx;
+  padding: 25rpx 0;
+}
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+  border-top:1px solid #e5e5e5;
+  border-bottom:1px solid #e5e5e5;
+}
+.picture_list {
+  padding: 20px;
+  height: 200rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+ 
+.picture_item {
+  margin: 10px;
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+}
+ 
+.upload_progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  background-color: #000;
+  color: #fff;
+  width: 160rpx;
+  height: 160rpx;
+  text-align: center;
+  line-height: 160rpx;
+  font-size: 12px;
+}
+ 
+.picture_item image {
+  width: 160rpx;
+  height: 160rpx;
+}
+.subClass_btn2 {
+margin-top: 40rpx;
+width: 95%;
+height: 80rpx;
+line-height: 80rpx;
+font-size: 30rpx;
+color: #fff;
+background: #20bd03;
+}
+button[disabled]{
+  background-color: #ccc;
+}

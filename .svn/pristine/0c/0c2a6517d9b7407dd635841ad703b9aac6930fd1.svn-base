@@ -1,0 +1,26 @@
+<block wx:if="{{listLength}}">
+<view wx:for="{{list}}" wx:key="list">
+<navigator class="nav-item" url="../mydetail/index?comp={{comp}}&wfid={{item.wfid}}" hover-class="other-navigator-hover">
+<view class='con'>
+  <view class='conCon2'>
+  </view>
+  <view class='conCon'>
+    <view class='conTitle'>
+      <text>{{item.subject}} {{item.status}}</text>
+      
+    </view>
+    <view class='conCen'>
+      <text>{{item.creator}} {{item.wftype}}</text>
+      <view class='time'>
+        <image src="../../../images/index/colock.png" mode="center center"/>
+        <text>{{item.createtime}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+</navigator>
+</view>
+</block>
+<block wx:else>
+  <image src="../../../images/index/message.png" mode="center center"/>
+</block>

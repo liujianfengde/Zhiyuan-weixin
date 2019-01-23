@@ -1,0 +1,190 @@
+<view wx:for="{{arr}}" wx:key="index" wx:for-index="idx">
+  <block wx:if="{{item.controlType == 'Lable'}}">
+    <block wx:if="{{item.showType == '2' || item.showType == '3'}}">
+      <block wx:if="{{comp == '1'}}">
+        <block wx:if="{{item.fieldType == '4'}}">
+          <view class="page-section">
+            <picker mode="date" value="{{date}}"  bindchange="bindPickerChange2" class="weui-cells" data-idx="{{idx}}"  data-labelpcname="{{item.labelPCName}}">
+              <view class="picker">
+                <text style='color:#000'>{{item.labelName}}</text>  {{arr0[idx].showName}}
+              </view>
+              <image src="../../../images/index/myRight.png" mode="center center"/>
+            </picker>
+          </view>
+        </block>
+        <block wx:elif="{{item.fieldType == '5'}}">
+          <view class="page-section">
+            <picker mode="date" value="{{date}}"  bindchange="bindPickerChange2" class="weui-cells" data-idx="{{idx}}"  data-labelpcname="{{item.labelPCName}}">
+              <view class="picker">
+                <text style='color:#000'>{{item.labelName}}</text>  {{arr0[idx].showName}}
+              </view>
+              <image src="../../../images/index/myRight.png" mode="center center"/>
+            </picker>
+          </view>
+        </block>
+        <block wx:elif="{{item.fieldType == '6'}}">
+          <view class="page-section">
+            <!-- <picker mode="multiSelector" value="{{dateTime}}" bindchange="bindPickerChange3" bindcolumnchange="changeDateTimeColumn" class="weui-cells" data-idx="{{idx}}"  data-labelpcname="{{item.labelPCName}}" range="{{dateTimeArray}}">
+              <view class="picker">
+                <text style='color:#000'>{{item.labelName}}</text>  {{arr0[idx].showName}}
+              </view>
+              <image src="../../../images/index/myRight.png" mode="center center"/>
+            </picker> -->
+            <picker mode="date" value="{{date}}"  bindchange="bindPickerChange2" class="weui-cells" data-idx="{{idx}}"  data-labelpcname="{{item.labelPCName}}">
+              <view class="picker">
+                <text style='color:#000'>{{item.labelName}}</text>  {{arr0[idx].showName}}
+              </view>
+              <image src="../../../images/index/myRight.png" mode="center center"/>
+            </picker>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="section">
+            <input bindinput='inputChange' type="text" placeholder="{{item.labelName}}" value="{{item.showValue}}" class='inputName'  data-labelPCName="{{item.labelPCName}}"/>
+          </view>
+        </block>
+        <!-- <view class="section">
+          <input bindinput='inputChange' type="text" placeholder="{{item.labelName}}" value="{{item.showValue}}" class='inputName'  data-labelPCName="{{item.labelPCName}}"/>
+        </view> -->
+      </block>
+    </block>
+    <block wx:else>
+      <view class="topInput">
+        <view class='InputLeft'>
+        </view>
+        <view class='InputRight'>
+          <text decode="{{true}}">{{item.labelName}}</text>
+          <text>{{item.showValue}}</text>
+        </view>
+      </view>
+    </block>
+  </block>
+  <block wx:if="{{item.controlType == 'textArea'}}">
+    <block wx:if="{{item.showType == '2' || item.showType == '3' }}">
+      <view class="topInput2">
+        <view class='InputRight'>
+          <text decode="{{true}}">{{item.labelName}}</text>
+          <view class="page-section" style='border-top:none;border-bottom:none'>
+            <view class="textarea-wrp">
+              <textarea style="height: 5em;width:99%"  bindinput='inputChange' placeholder="{{item.showValue}}" value="{{item.showValue}}" data-labelpcname="{{item.labelPCName}}"/>
+            </view>
+        </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="topInput2">
+        <view class='InputRight'>
+          <text decode="{{true}}">{{item.labelName}}</text>
+          <view class="page-section" style='border-top:none;border-bottom:none'>
+            <view class="textarea-wrp">
+              <textarea style="height: 5em;width:99%" placeholder="{{item.showValue}}" value="{{item.showValue}}" disabled='true'/>
+            </view>
+        </view>
+        </view>
+      </view>
+    </block>
+  </block>
+  <block wx:if="{{item.controlType == 'Attach'}}">
+    <block wx:if="{{item.showType == 1}}">
+      <view class="topInput2" style='padding-bottom:20rpx;'>
+        <view class='InputLeft'>
+        </view>
+        <view class='InputRight'>
+          <text decode="{{true}}">{{item.labelName}}</text>
+          <view class='InputRightImage'>
+          <view wx:for="{{tupian2}}" wx:key="index" class='imgs'>
+            <image src="{{tupian2[index]}}" mode="aspectFill" bindtap="imgYu" data-list="{{tupian2}}"/>
+          </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="picture_list">
+        <view wx:for="{{item.pickValue}}" class="picture_item" wx:key="{{index}}">
+          <!-- <image wx:if="{{item.upload_percent < 100}}" src="{{item.path}}" mode="aspectFill"></image> -->
+          <image src="{{item.path}}" mode="aspectFill"></image>
+          <view class="upload_progress" wx:if="{{item.upload_percent < 100}}" style="display:{{display}}">{{item.upload_percent}}%</view>
+        </view>
+        <view class="picture_item" >
+          <image src="../../images/index/add.png" data-idx="{{idx}}" bindtap="uploadpic" mode="aspectFill" style="display:{{display}}"></image>
+        </view>
+      </view>
+    </block>
+  </block>
+  <block wx:elif="{{item.controlType == 'Select'}}" >
+  
+    <block wx:if="{{item.showType == 1}}">
+      <view class="topInput">
+        <view class='InputLeft'>
+        </view>
+        <view class='InputRight'>
+          <text decode="{{true}}">{{item.labelName}}</text>
+          <text>{{item.showName}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <block wx:if="{{comp == '1'}}">
+        <view class="page-section">
+          <picker id="{{item.id}}" bindchange="bindPickerChange" value="{{item.index}}"  data-labelpcname="{{item.labelPCName}}" data-idx="{{idx}}" range="{{item.pickValue}}" class="weui-cells" range-key="objname">
+            <view class="picker">
+            <text style='color:#000'>{{item.labelName}}</text> {{arr0[idx].showName}}
+            </view>
+            <image src="../../../images/index/myRight.png" mode="center center"/>
+          </picker>
+        </view>
+      </block>
+    </block>
+  </block>
+  
+</view>
+<block wx:if="{{quanxian}}">
+  <view class="topInput2" style='padding-bottom:150rpx;'>
+    <view class='InputLeft'>
+    </view>
+    <view class='InputRight'>
+      <text decode="{{true}}">签字意见</text>
+      <view class="page-section" style='border-top:none;border-bottom:none'>
+        <view class="textarea-wrp">
+          <textarea style="height: 2em" placeholder="签字意见" value="{{remark}}" bindinput="inputChange2"/>
+        </view>
+    </view>
+    </view>
+  </view>
+</block>
+<view class='InputLeft'>
+</view>
+<view class="topInput2" style='padding-bottom:150rpx;'>
+<view class='InputRight'>
+  <text decode="{{true}}">流程流转</text>
+  <view wx:for="{{info2}}" wx:key="index">
+    <view class="con2" style='color:#111;font-size:33rpx;'>
+      <text>{{item.nodename}}</text>
+      <text>{{item.remark}}</text>
+      <text>{{item.operatedate}} {{item.operatortime}}</text>
+      <text>{{item.operatorname}} {{item.logtypename}}</text>
+      </view>
+  </view>
+</view>
+</view>
+<!-- <block wx:if="{{thqx}}"> -->
+<block wx:if="{{quanxian4}}">
+  <view class="page-section">
+    <picker value="{{thIndex}}" range="{{thRange}}"  bindchange="bindPickerChange4" class="weui-cells" range-key="objname">
+      <view class="picker">
+        <text style='color:#000'>流程退回</text>  {{thRange[thIndex].objname}}
+      </view>
+      <image src="../../../images/index/myRight.png" mode="center center"/>
+    </picker>
+  </view>
+  <view style='width:100%;height:130rpx'></view>
+</block>
+<!-- </view> -->
+<block wx:if="{{quanxian}}">
+  <view class='bottom'>
+    <text bindtap='tuihui' style='background:{{color2}};border-top:{{color2}}' disabled="{{disable}}">{{tuihui}}</text>
+    <text bindtap='tongyi' style='background:{{color}};border-top:{{color}}' disabled="{{disable}}">{{tijiao}}</text>
+  </view>
+</block>
